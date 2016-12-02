@@ -35,7 +35,7 @@ HEX_EEPROM_FLAGS += --change-section-lma .eeprom=0 --no-change-warnings
 
 
 ## Objects that must be built in order to link
-OBJECTS = sw_api.o my_serial.o test_sw_api.o 
+OBJECTS = sw_api.o my_serial.o test_sw_api.o my_timers.o 
 
 ## Objects explicitly added by the user
 LINKONLYOBJECTS = 
@@ -51,6 +51,9 @@ my_serial.o: ../my_serial.c
 	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
 
 test_sw_api.o: ../test_sw_api.c
+	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
+
+my_timers.o: ../my_timers.c
 	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
 
 ##Link
